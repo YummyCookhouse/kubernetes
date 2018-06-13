@@ -1,0 +1,23 @@
+version: "3"
+
+networks:
+  etcd_custom:
+    external: true
+services:
+  kube-master:
+    build: .
+    image: kube-master
+    container_name: kube-master
+    ports:
+      - 8080:8080
+    dns:
+      - 8.8.8.8
+    networks:
+      - etcd_custom
+    privileged: true
+    environment:
+      - ETCD_ENDPOINTS=http://etcd0:2379/
+      - ETCD_PREFIX=/k8s/
+    external_links:
+      - etcd0
+      - etcd1

@@ -1,0 +1,37 @@
+version: "3"
+
+networks:
+  etcd_custom:
+    external: true
+services:
+  flannel0:
+    build: .
+    image: flannel-docker-node
+    container_name: flannel0
+    dns:
+      - 8.8.8.8
+    networks:
+      - etcd_custom
+    privileged: true
+    environment:
+      - ETCD_ENDPOINTS=http://etcd0:2379/
+      - ETCD_PREFIX=/k8s/
+    external_links:
+      - etcd0
+      - etcd1
+  flannel1:
+      depends_on:
+        - flannel0
+      image: flannel-docker-node
+      container_name: flannel1
+      dns:
+        - 8.8.8.8
+      networks:
+        - etcd_custom
+      privileged: true
+      environment:
+        - ETCD_ENDPOINTS=http://etcd0:2379/
+        - ETCD_PREFIX=/k8s/
+      external_links:
+        - etcd0
+        - etcd1
