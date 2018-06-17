@@ -14,7 +14,7 @@ dockerd -D --bip=$FLANNEL_SUBNET --mtu=$FLANNEL_MTU --ip-masq=false &
 echo "-----------starting kubelet------------"
 sleep 3
 # --pod-infra-container-image KENG see https://github.com/kubernetes/kubernetes/issues/7090!!!!!!
-kubelet --pod-infra-container-image=registry.aliyuncs.com/archon/pause-amd64:3.0 --api-servers=http://kube-master:8080 --node-labels=$NODE_LABELS --hostname-override=$NODE_NAME &
+kubelet --pod-infra-container-image=registry.aliyuncs.com/archon/pause-amd64:3.0 --api-servers=http://kube-master:8080 --node-labels=$NODE_LABELS --hostname-override=$NODE_NAME --cluster-dns=192.168.44.221 --cluster-domain=cluster.local. --allow-privileged=true &
 echo "-----------starting kube-proxy------------"
 sleep 3
 
