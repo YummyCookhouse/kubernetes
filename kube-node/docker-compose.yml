@@ -16,7 +16,7 @@ services:
     environment:
       - ETCD_ENDPOINTS=http://etcd0:2379/
       - ETCD_PREFIX=/k8s/
-      - NODE_NAME=node-0
+      - NODE_NAME=kube-node0
       - NODE_LABELS=group=k8s-demo
     external_links:
       - etcd0
@@ -35,9 +35,9 @@ services:
     environment:
       - ETCD_ENDPOINTS=http://etcd0:2379/
       - ETCD_PREFIX=/k8s/
-      - NODE_NAME=node-1
+      - NODE_NAME=kube-node1
       - NODE_LABELS=group=k8s-demo
     external_links:
       - etcd0
       - etcd1
-      - cube-master
+      - kube-master
