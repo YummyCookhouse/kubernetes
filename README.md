@@ -39,8 +39,8 @@
 > 项目内所有的package都已经dockerize了，所以，你只需要一件东西，就是Docker
 
 # 一步一步来
- - 运行ETCD集群
- - 用flannel作为集群的overlay network
+ - [运行ETCD集群](https://github.com/YummyCookhouse/kubernetes/blob/master/etcd/README.md)
+ - [用flannel作为集群的overlay network](https://github.com/YummyCookhouse/kubernetes/blob/master/flannel/README.md)
  - 创建一个仅包含master节点的k8s集群
  - 创建2个node节点并加入到k8s集群
  - 使用`kubectl`部署应用
