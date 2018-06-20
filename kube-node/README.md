@@ -2,9 +2,11 @@
 - kubelet
 - kube-proxy
 
-# 运行(host)
+# 运行
 ```sh
+# 启动kube nodes (host)
 docker-compose -f kube-node/docker-compose.yml up --build -d
+# copy模版 (host)
 docker cp templates kube-master:/
 ```
 
@@ -16,30 +18,30 @@ docker exec -it kube-master bash
 kubectl get nodes
 ```
 
-# 使用kubectl部署应用(master)
+# 使用kubectl部署应用
 ```sh
-#1. 在2个node状态ready之后用kubectl部署应用
+#1. 在2个node状态ready之后用kubectl部署应用 (master)
 kubectl run webapp --image=stardustdocker/nginx --port=80 --replicas=3
-#2. 查看pods
+#2. 查看pods (master)
 kubectl get pods --output=wide
-#3. 查看pod的详细信息
+#3. 查看pod的详细信息 (master)
 kubectl describe ${POD的ID}
-#4. 访问webapp
+#4. 访问webapp (master)
 curl -L http://${POD的ID}
 ```
 
-# 移除应用(master)
+# 移除应用
 ```sh
 kubectl delete deployment webapp
 ```
 
-# 使用yaml重新部署webapp(master)
+# 使用yaml重新部署webapp
 ```sh
 kubectl create -f templates/app-frontend/nginx-deployment.yml
 kubectl get pods --output=wide
 ```
 
-# 创建Service(master)
+# 创建Service
 ```sh
 #1. 方法1 通过kubectl创建
 kubectl expose deployment/webapp --port=80 --target-port=80 --type=LoadBalancer --name=webapp-lb
@@ -61,8 +63,9 @@ docker exec -it ${POD_ID} bash
 curl -L http://${service的clusterIP}
 ```
 
-# 在集群外部通过service来访问webapp(host)
+# 在集群外部通过service来访问webapp
 ```sh
+# 从host访问service(host)
 curl -L http://${你机器的IP}:8080/api/v1/proxy/namespaces/default/services/webapp-lb:80
 ```
 
