@@ -41,9 +41,12 @@
 # 一步一步来
  - [运行ETCD集群](https://github.com/YummyCookhouse/kubernetes/blob/master/etcd/README.md)
  - [用flannel作为集群的overlay network](https://github.com/YummyCookhouse/kubernetes/blob/master/flannel/README.md)
- - 创建一个仅包含master节点的k8s集群
- - 创建2个node节点并加入到k8s集群
- - 使用`kubectl`部署应用
- - 使用`yaml`部署应用
- - 创建`Service`
- - 集群内的DNS
+ - [创建一个仅包含master节点的k8s集群](https://github.com/YummyCookhouse/kubernetes/blob/master/kube-master/README.md)
+ - [创建2个node节点并加入到k8s集群](https://github.com/YummyCookhouse/kubernetes/blob/master/kube-node/README.md#%E8%BF%90%E8%A1%8C)
+ - [使用`kubectl`部署应用](https://github.com/YummyCookhouse/kubernetes/blob/master/kube-node/README.md#%E4%BD%BF%E7%94%A8kubectl%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8)
+ - [使用`yaml`部署应用](https://github.com/YummyCookhouse/kubernetes/blob/master/kube-node/README.md#%E4%BD%BF%E7%94%A8yaml%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2webapp)
+ - [通过`Service`访问application](https://github.com/YummyCookhouse/kubernetes/blob/master/kube-node/README.md#%E5%88%9B%E5%BB%BAservice)
+ - [集群内的DNS](https://github.com/YummyCookhouse/kubernetes/blob/master/kube-node/README.md#%E5%88%9B%E5%BB%BAdns)
+ - [Scale你的应用](https://github.com/YummyCookhouse/kubernetes/blob/master/kube-node/README.md#scale%E4%BD%A0%E7%9A%84%E5%BA%94%E7%94%A8)
+ - [更新你的应用到新的版本](https://github.com/YummyCookhouse/kubernetes/blob/master/kube-node/README.md#%E6%9B%B4%E6%96%B0%E4%BD%A0%E7%9A%84%E5%BA%94%E7%94%A8)
+ - 查看log
