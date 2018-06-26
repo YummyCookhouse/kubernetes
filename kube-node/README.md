@@ -25,9 +25,9 @@ kubectl run webapp --image=stardustdocker/nginx --port=80 --replicas=3
 #2. 查看pods (master)
 kubectl get pods --output=wide
 #3. 查看pod的详细信息 (master)
-kubectl describe ${POD的ID}
+kubectl describe pod POD的ID
 #4. 访问webapp (master)
-curl -L http://${POD的ID}
+curl -L http://POD的ID
 ```
 
 # 移除应用
@@ -56,17 +56,17 @@ kubectl get services --output=wide
 #1. 进入node节点 (host)
 docker exec -it kube-node1 bash
 #2. 访问service (node)
-curl -L http://${service的clusterIP}
+curl -L http://service的clusterIP
 #3. 从node进入webapp容器内部 (node)
-docker exec -it ${POD_ID} bash
+docker exec -it POD_ID bash
 #4. 访问service (pod)
-curl -L http://${service的clusterIP}
+curl -L http://service的clusterIP
 ```
 
 # 在集群外部通过service来访问webapp
 ```sh
 # 从host访问service(host)
-curl -L http://${你机器的IP}:8080/api/v1/proxy/namespaces/default/services/webapp-lb:80
+curl -L http://你机器的IP:8080/api/v1/proxy/namespaces/default/services/webapp-lb:80
 ```
 
 # 创建DNS
@@ -80,7 +80,7 @@ kubectl get services --output=wide
 #4. 进入node节点 (host)
 docker exec -it kube-node1 bash
 #5. 进入到POD
-docker exec -it ${POD的ID} bash
+docker exec -it POD的ID bash
 #6. 在POD内部使用域名访问
 curl -L http://webapp.default.svc.local.cluster
 ```
