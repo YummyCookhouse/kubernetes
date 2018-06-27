@@ -6,7 +6,7 @@
 - 选举
 - 服务发现
 - 订阅与发布
-- 分布式锁
+- [分布式锁](https://github.com/YummyCookhouse/ETCD/tree/master/lock)
 - 分布式队列
 
 ## ETCD vs ZooKeeper
