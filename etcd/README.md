@@ -3,8 +3,8 @@
 
 ## ETCD的应用场景
 - 存储配置
-- [选举](https://github.com/YummyCookhouse/ETCD/tree/master/election)
-- 服务发现
+- [选举](https://github.com/YummyCookhouse/ETCD/tree/master/election-and-discovery)
+- [发现](https://github.com/YummyCookhouse/ETCD/tree/master/election-and-discovery)
 - 订阅与发布
 - [分布式锁](https://github.com/YummyCookhouse/ETCD/tree/master/lock)
 - 分布式队列
